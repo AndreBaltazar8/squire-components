@@ -1,0 +1,20 @@
+version: 1
+id: go
+description: Go project guidance.
+detectors:
+  any:
+    - go.mod
+guidance:
+  technologies:
+    - "Go project."
+  commands:
+    - command: go test ./...
+      description: Go tests
+    - command: go fmt ./...
+      description: Go format
+    - command: go build ./...
+      description: Go build
+  standards:
+    - "Go code follows existing package boundaries."
+  verification:
+    - "Run focused Go tests for touched packages."

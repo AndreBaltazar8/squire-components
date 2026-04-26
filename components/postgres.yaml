@@ -1,0 +1,16 @@
+version: 1
+id: postgres
+description: PostgreSQL guidance.
+detectors:
+  any:
+    - docker-compose.yml
+    - compose.yaml
+    - migrations
+    - db
+guidance:
+  technologies:
+    - "Persistence uses PostgreSQL when configured."
+  environment:
+    - "DATABASE_URL configures PostgreSQL connections."
+  verification:
+    - "Database changes need migration/reset verification when scripts exist."

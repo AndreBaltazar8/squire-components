@@ -1,0 +1,18 @@
+version: 1
+id: svelte
+description: SvelteKit project guidance.
+detectors:
+  any:
+    - svelte.config.js
+    - svelte.config.ts
+    - src/site-*/svelte.config.js
+    - src/site-*/svelte.config.ts
+guidance:
+  technologies:
+    - "Frontend uses SvelteKit."
+  structure:
+    - "src/site-* holds SvelteKit apps."
+  standards:
+    - "Svelte code follows existing route/component layout."
+  verification:
+    - "UI changes need rendered check when layout matters."

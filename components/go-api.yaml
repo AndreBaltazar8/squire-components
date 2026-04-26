@@ -1,0 +1,15 @@
+version: 1
+id: go-api
+description: Go service guidance.
+detectors:
+  any:
+    - src/svc-*/go.mod
+guidance:
+  technologies:
+    - "Backend uses Go services in src/svc-*."
+  structure:
+    - "src/svc-* holds Go services."
+  standards:
+    - "Go code follows existing package boundaries."
+  verification:
+    - "Run Go checks from touched service directory."
