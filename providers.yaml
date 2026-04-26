@@ -1,0 +1,6 @@
+version: 1
+providers:
+  - id: squire-components
+    name: Squire Components
+    source: AndreBaltazar8/squire-components
+    description: Public reusable components maintained with Squire.

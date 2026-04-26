@@ -1,0 +1,5 @@
+version: 1
+id: squire-components
+name: Squire Components
+description: Public reusable components for Squire.
+components: components
