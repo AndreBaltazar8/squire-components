@@ -20,3 +20,10 @@ Provider metadata:
 
 - `provider.yaml` describes this provider and its component directory.
 - `providers.yaml` is a provider index. Add other public provider repos there.
+- `index.yaml` is the generated catalog used by `squire browse`.
+
+Refresh the catalog:
+
+```bash
+scripts/build-index.sh
+```

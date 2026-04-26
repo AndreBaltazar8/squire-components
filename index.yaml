@@ -1,0 +1,24 @@
+version: 1
+generated_at: 2026-04-26T22:16:16Z
+providers:
+  - id: squire-components
+    name: Squire Components
+    description: Public reusable components for Squire.
+    source: AndreBaltazar8/squire-components
+    components_dir: components
+    components:
+      - id: bun-workspace
+        description: Bun workspace and Turbo guidance.
+        path: components/bun-workspace.yaml
+      - id: go-api
+        description: Go service guidance.
+        path: components/go-api.yaml
+      - id: go
+        description: Go project guidance.
+        path: components/go.yaml
+      - id: postgres
+        description: PostgreSQL guidance.
+        path: components/postgres.yaml
+      - id: svelte
+        description: SvelteKit project guidance.
+        path: components/svelte.yaml
