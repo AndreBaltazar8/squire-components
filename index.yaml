@@ -19,9 +19,18 @@ providers:
       - id: kubernetes
         description: Kubernetes manifest guidance.
         path: components/kubernetes.yaml
+      - id: mongodb
+        description: MongoDB guidance.
+        path: components/mongodb.yaml
+      - id: mysql
+        description: MySQL/MariaDB guidance.
+        path: components/mysql.yaml
       - id: postgres
         description: PostgreSQL guidance.
         path: components/postgres.yaml
+      - id: redis
+        description: Redis guidance.
+        path: components/redis.yaml
       - id: rust
         description: Rust project guidance (native artifacts, not WASM by default).
         path: components/rust.yaml

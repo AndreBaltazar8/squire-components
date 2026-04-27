@@ -1,0 +1,25 @@
+version: 1
+id: mysql
+description: MySQL/MariaDB guidance.
+detectors:
+  any:
+    - my.cnf
+    - mysql.cnf
+    - mariadb.cnf
+    - file: docker-compose.yml
+      regex: 'image:\s*["'']?(mysql|mariadb|percona)'
+    - file: docker-compose.yaml
+      regex: 'image:\s*["'']?(mysql|mariadb|percona)'
+    - file: compose.yml
+      regex: 'image:\s*["'']?(mysql|mariadb|percona)'
+    - file: compose.yaml
+      regex: 'image:\s*["'']?(mysql|mariadb|percona)'
+    - file: package.json
+      regex: '"(mysql|mysql2|mariadb)"\s*:'
+guidance:
+  technologies:
+    - "Persistence uses MySQL."
+  environment:
+    - "MYSQL_* env vars configure MySQL connections."
+  verification:
+    - "Database changes need migration/reset verification when scripts exist."

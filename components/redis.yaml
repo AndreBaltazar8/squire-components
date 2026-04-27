@@ -1,0 +1,23 @@
+version: 1
+id: redis
+description: Redis guidance.
+detectors:
+  any:
+    - redis.conf
+    - file: docker-compose.yml
+      regex: 'image:\s*["'']?redis'
+    - file: docker-compose.yaml
+      regex: 'image:\s*["'']?redis'
+    - file: compose.yml
+      regex: 'image:\s*["'']?redis'
+    - file: compose.yaml
+      regex: 'image:\s*["'']?redis'
+    - file: package.json
+      regex: '"(redis|ioredis)"\s*:'
+    - file: go.mod
+      regex: 'github\.com/(go-redis|redis)/'
+guidance:
+  technologies:
+    - "Cache/queue uses Redis."
+  environment:
+    - "REDIS_URL configures Redis connections."
