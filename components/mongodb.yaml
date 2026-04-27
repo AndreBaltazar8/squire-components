@@ -1,0 +1,24 @@
+version: 1
+id: mongodb
+description: MongoDB guidance.
+detectors:
+  any:
+    - mongod.conf
+    - mongodb.conf
+    - file: docker-compose.yml
+      regex: 'image:\s*["'']?mongo'
+    - file: docker-compose.yaml
+      regex: 'image:\s*["'']?mongo'
+    - file: compose.yml
+      regex: 'image:\s*["'']?mongo'
+    - file: compose.yaml
+      regex: 'image:\s*["'']?mongo'
+    - file: package.json
+      regex: '"(mongodb|mongoose)"\s*:'
+    - file: go.mod
+      regex: 'go\.mongodb\.org/mongo-driver'
+guidance:
+  technologies:
+    - "Document store uses MongoDB."
+  environment:
+    - "MONGO_URL or MONGODB_URI configures MongoDB connections."

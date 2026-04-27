@@ -3,14 +3,23 @@ id: postgres
 description: PostgreSQL guidance.
 detectors:
   any:
-    - docker-compose.yml
-    - compose.yaml
-    - migrations
-    - db
+    - pg_hba.conf
+    - postgresql.conf
+    - "*.psql"
+    - file: docker-compose.yml
+      contains: postgres
+    - file: docker-compose.yaml
+      contains: postgres
+    - file: compose.yml
+      contains: postgres
+    - file: compose.yaml
+      contains: postgres
+    - file: package.json
+      regex: '"(pg|postgres|postgresql|node-postgres)"\s*:'
 guidance:
   technologies:
-    - "Persistence uses PostgreSQL when configured."
+    - "Persistence uses PostgreSQL."
   environment:
-    - "DATABASE_URL configures PostgreSQL connections."
+    - "DATABASE_URL or PG* env vars configure PostgreSQL connections."
   verification:
     - "Database changes need migration/reset verification when scripts exist."
