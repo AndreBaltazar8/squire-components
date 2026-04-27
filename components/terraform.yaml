@@ -1,0 +1,30 @@
+version: 1
+id: terraform
+description: Terraform IaC guidance.
+detectors:
+  any:
+    - "*.tf"
+    - "infra/*.tf"
+    - "infra/**/*.tf"
+    - "terraform/*.tf"
+    - "terraform/**/*.tf"
+    - .terraform.lock.hcl
+    - infra/.terraform.lock.hcl
+    - terraform/.terraform.lock.hcl
+guidance:
+  technologies:
+    - "Infrastructure is managed with Terraform."
+  commands:
+    - command: terraform fmt -recursive
+      description: format Terraform sources
+    - command: terraform validate
+      description: validate the current module
+    - command: terraform plan
+      description: preview a change against the configured backend
+  environment:
+    - "Configure provider credentials via the project's existing wrapper/Makefile rather than exporting them ad-hoc."
+  standards:
+    - "Pin provider and module versions; do not edit `*.tfstate` by hand."
+    - "Plans should be reviewed before apply; never apply directly to production from a developer machine without an approval trail."
+  verification:
+    - "Run `terraform plan` for touched modules and read the diff before applying."
