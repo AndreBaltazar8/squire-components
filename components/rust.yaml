@@ -1,0 +1,28 @@
+version: 1
+id: rust
+description: Rust project guidance (native artifacts, not WASM by default).
+detectors:
+  any:
+    - Cargo.toml
+    - "*/Cargo.toml"
+    - "src/*/Cargo.toml"
+    - "sid-utils/*/Cargo.toml"
+guidance:
+  technologies:
+    - "Rust components are built with cargo. Treat artifacts as native binaries unless a Cargo target explicitly enables `wasm32-*` or `wasm-bindgen`."
+  commands:
+    - command: cargo build
+      description: build the Rust project (debug)
+    - command: cargo build --release
+      description: build the Rust project (release)
+    - command: cargo test
+      description: run Rust unit tests
+    - command: cargo fmt --all
+      description: format Rust sources
+    - command: cargo clippy --all-targets
+      description: lint with clippy
+  standards:
+    - "Match the existing crate layout (lib.rs / main.rs split, module boundaries)."
+    - "Run `cargo fmt` and `cargo clippy` before publishing changes."
+  verification:
+    - "Run focused `cargo test -p <crate>` for touched crates instead of the full workspace test sweep."

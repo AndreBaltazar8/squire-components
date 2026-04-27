@@ -1,5 +1,5 @@
 version: 1
-generated_at: 2026-04-26T22:16:16Z
+generated_at: 2026-04-27T12:35:01Z
 providers:
   - id: squire-components
     name: Squire Components
@@ -16,9 +16,18 @@ providers:
       - id: go
         description: Go project guidance.
         path: components/go.yaml
+      - id: kubernetes
+        description: Kubernetes manifest guidance.
+        path: components/kubernetes.yaml
       - id: postgres
         description: PostgreSQL guidance.
         path: components/postgres.yaml
+      - id: rust
+        description: Rust project guidance (native artifacts, not WASM by default).
+        path: components/rust.yaml
       - id: svelte
         description: SvelteKit project guidance.
         path: components/svelte.yaml
+      - id: terraform
+        description: Terraform IaC guidance.
+        path: components/terraform.yaml

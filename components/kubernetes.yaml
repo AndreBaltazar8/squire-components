@@ -1,0 +1,33 @@
+version: 1
+id: kubernetes
+description: Kubernetes manifest guidance.
+detectors:
+  any:
+    - k8s
+    - kubernetes
+    - kustomization.yaml
+    - kustomization.yml
+    - file: k8s/kustomization.yaml
+      contains: apiVersion
+    - file: kubernetes/kustomization.yaml
+      contains: apiVersion
+    - file: helm/Chart.yaml
+      contains: apiVersion
+    - file: Chart.yaml
+      contains: apiVersion
+guidance:
+  technologies:
+    - "Workloads run on Kubernetes."
+  commands:
+    - command: kubectl --context <ctx> get pods
+      description: list pods in a context
+    - command: kubectl --context <ctx> apply -k <dir>
+      description: apply a kustomize overlay
+    - command: helm --kube-context <ctx> template <chart>
+      description: render a Helm chart locally for review
+  environment:
+    - "Always set `--context` (or `--kube-context` for Helm) explicitly. Never rely on the active kubeconfig context to decide which cluster a command lands on."
+  standards:
+    - "Manifests live under `k8s/` (or `kubernetes/`); Helm values under `helm/`. Generated manifests should be regenerated rather than hand-edited."
+  verification:
+    - "Render templates with `kubectl apply --dry-run=client` or `helm template` before applying."
